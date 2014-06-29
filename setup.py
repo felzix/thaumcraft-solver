@@ -16,7 +16,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'main = thaumcraft.main:main',
+            'thaumcraft-research = thaumcraft.main:main',
         ]
     }
 )
