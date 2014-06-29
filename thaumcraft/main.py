@@ -27,8 +27,8 @@ def make_aspect_list():
 
         ('gelum', ('agua', 'ordo')),
         ('lux', ('aer', 'ignis')),
-        ('motus', ('aer', 'ordo')),
-        # ('motus', ('aer', 'agua')),  # as of 4.1.0g
+        # ('motus', ('aer', 'ordo')),  # old
+        ('motus', ('aer', 'agua')),  # as of 4.1.0g
         ('potentia', ('ordo', 'ignis')),
         ('saxum', ('terra', 'terra')),
         ('vacuous', ('aer', 'perditio')),
@@ -36,8 +36,8 @@ def make_aspect_list():
 
         ('bestia', ('motus', 'victus')),
         ('fames', ('victus', 'vacuous')),
-        ('granum', ('victus', 'terra')),
-        # ('granum', ('victus', 'ordo')),  # as of 4.1.0g
+        # ('granum', ('victus', 'terra')),  # old
+        ('granum', ('victus', 'ordo')),  # as of 4.1.0g
         ('iter', ('motus', 'terra')),
         ('limus', ('victus', 'agua')),
         ('metallum', ('saxum', 'ordo')),
@@ -45,9 +45,9 @@ def make_aspect_list():
         ('permutatio', ('motus', 'agua')),
         ('praecantatio', ('vacuous', 'potentia')),
         ('sano', ('victus', 'victus')),
-        ('tempestas', ('aer', 'agua')),
+        # ('tempestas', ('aer', 'agua')),  # old
         # ('tempestas', ('aer', 'motus')),  # as of 4.1.0f
-        # ('tempestas', ('aer', 'gelum')),  # as of 4.1.0g
+        ('tempestas', ('aer', 'gelum')),  # as of 4.1.0g
         ('tenebrae', ('vacuous', 'lux')),
         ('vinculum', ('motus', 'perditio')),
         ('vitreus', ('saxum', 'agua')),
@@ -63,24 +63,24 @@ def make_aspect_list():
         ('venenum', ('agua', 'mortuus')),
         ('vitium', ('praecantatio', 'perditio')),
 
-        ('arbor', ('terra', 'herba')),
-        # ('arbor', ('aer', 'herba')),  # as of 4.1.0g
+        # ('arbor', ('terra', 'herba')),  # old
+        ('arbor', ('aer', 'herba')),  # as of 4.1.0g
         ('cognitio', ('terra', 'spiritus')),
         ('sensus', ('aer', 'spiritus')),
 
         ('humanus', ('bestia', 'cognitio')),
 
-        ('instrumentum', ('humanus', 'metallum')),
-        # ('instrumentum', ('humanus', 'ordo')),  # as of 4.1.0g
+        # ('instrumentum', ('humanus', 'metallum')),  # old
+        ('instrumentum', ('humanus', 'ordo')),  # as of 4.1.0g
         ('lucrum', ('humanus', 'fames')),
-        ('messis', ('granum', 'humanus')),
-        # ('messis', ('herba', 'humanus')),  # as of 4.1.0g
+        # ('messis', ('granum', 'humanus')),  # old
+        ('messis', ('herba', 'humanus')),  # as of 4.1.0g
         ('perfodio', ('humanus', 'saxum')),
 
         ('fabrico', ('humanus', 'instrumentum')),
         ('machina', ('motus', 'instrumentum')),
-        ('meto', ('messis', 'humanus')),
-        # ('meto', ('messis', 'instrumentum')),  # as of 4.1.0g
+        # ('meto', ('messis', 'humanus')),  # old
+        ('meto', ('messis', 'instrumentum')),  # as of 4.1.0g
         ('pannus', ('instrumentum', 'bestia')),
         ('telum', ('instrumentum', 'perditio')),
         ('tutamen', ('instrumentum', 'terra')),
@@ -95,12 +95,14 @@ def process(source_name, destination_name, depth):
     return graph.all_paths(source_aspect, destination_aspect, depth)
 
 
-def main(argv):
+def main():
     source_name = argv[1]
     destination_name = argv[2]
     depth = int(argv[3])
-    print process(source_name, destination_name, depth)
+    paths = process(source_name, destination_name, depth)
+    for path in paths:
+        print ' -> '.join(['{:<12}'.format(source_name)] + ['{:<12}'.format(aspect) for aspect in path])
 
 
 if __name__ == '__main__':
-    main(argv)
+    main()
