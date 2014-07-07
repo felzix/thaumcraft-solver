@@ -59,6 +59,7 @@ def make_aspect_list():
         ('corpus', ('mortuus', 'bestia')),
         ('exanimis', ('motus', 'mortuus')),
         ('herba', ('granum', 'terra')),
+        ('infernus', ('ignis', 'praecantatio')),
         ('spiritus', ('victus', 'mortuus')),
         ('venenum', ('agua', 'mortuus')),
         ('vitium', ('praecantatio', 'perditio')),
@@ -66,6 +67,8 @@ def make_aspect_list():
         # ('arbor', ('terra', 'herba')),  # old
         ('arbor', ('aer', 'herba')),  # as of 4.1.0g
         ('cognitio', ('terra', 'spiritus')),
+        ('desidia', ('spiritus', 'vinculum')),
+        ('luxuria', ('fames', 'corpus')),
         ('sensus', ('aer', 'spiritus')),
 
         ('humanus', ('bestia', 'cognitio')),
@@ -78,6 +81,8 @@ def make_aspect_list():
         ('perfodio', ('humanus', 'saxum')),
 
         ('fabrico', ('humanus', 'instrumentum')),
+        ('gula', ('fames', 'fames')),
+        ('invidia', ('sensus', 'fames')),
         ('machina', ('motus', 'instrumentum')),
         # ('meto', ('messis', 'humanus')),  # old
         ('meto', ('messis', 'instrumentum')),  # as of 4.1.0g
