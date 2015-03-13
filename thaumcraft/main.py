@@ -25,10 +25,9 @@ def make_aspect_list():
         ('perditio', ()),
         ('terra', ()),
 
-        ('gelum', ('agua', 'ordo')),
+        ('gelum', ('ignis', 'perditio')),
         ('lux', ('aer', 'ignis')),
-        # ('motus', ('aer', 'ordo')),  # old
-        ('motus', ('aer', 'agua')),  # as of 4.1.0g
+        ('motus', ('aer', 'ordo')),
         ('potentia', ('ordo', 'ignis')),
         ('saxum', ('terra', 'terra')),
         ('vacuous', ('aer', 'perditio')),
@@ -36,59 +35,54 @@ def make_aspect_list():
 
         ('bestia', ('motus', 'victus')),
         ('fames', ('victus', 'vacuous')),
-        # ('granum', ('victus', 'terra')),  # old
-        ('granum', ('victus', 'ordo')),  # as of 4.1.0g
+        ('granum', ('victus', 'ordo')),
         ('iter', ('motus', 'terra')),
         ('limus', ('victus', 'agua')),
-        ('metallum', ('saxum', 'ordo')),
         ('mortuus', ('victus', 'perditio')),
-        ('permutatio', ('motus', 'agua')),
+        ('permutatio', ('perditio', 'ordo')),
         ('praecantatio', ('vacuous', 'potentia')),
         ('sano', ('victus', 'victus')),
-        # ('tempestas', ('aer', 'agua')),  # old
-        # ('tempestas', ('aer', 'motus')),  # as of 4.1.0f
-        ('tempestas', ('aer', 'gelum')),  # as of 4.1.0g
+        ('tempestas', ('aer', 'gelum')),
         ('tenebrae', ('vacuous', 'lux')),
         ('vinculum', ('motus', 'perditio')),
-        ('vitreus', ('saxum', 'agua')),
+        ('vitreus', ('terra', 'ordo')),
         ('volatus', ('aer', 'motus')),
         ('tempus', ('vacuous', 'ordo')),
 
+        ('metallum', ('terra', 'vitreus')),
         ('alienis', ('vacuous', 'tenebrae')),
         ('auram', ('praecantatio', 'aer')),
         ('corpus', ('mortuus', 'bestia')),
         ('exanimis', ('motus', 'mortuus')),
-        ('herba', ('granum', 'terra')),
+        ('herba', ('victus', 'terra')),
         ('infernus', ('ignis', 'praecantatio')),
         ('spiritus', ('victus', 'mortuus')),
-        ('venenum', ('agua', 'mortuus')),
+        ('venenum', ('agua', 'perditio')),
         ('vitium', ('praecantatio', 'perditio')),
 
-        # ('arbor', ('terra', 'herba')),  # old
-        ('arbor', ('aer', 'herba')),  # as of 4.1.0g
-        ('cognitio', ('terra', 'spiritus')),
+        ('arbor', ('aer', 'herba')),
+        ('cognitio', ('ignis', 'spiritus')),
         ('desidia', ('spiritus', 'vinculum')),
         ('luxuria', ('fames', 'corpus')),
         ('sensus', ('aer', 'spiritus')),
 
         ('humanus', ('bestia', 'cognitio')),
 
-        # ('instrumentum', ('humanus', 'metallum')),  # old
         ('instrumentum', ('humanus', 'ordo')),  # as of 4.1.0g
         ('lucrum', ('humanus', 'fames')),
-        # ('messis', ('granum', 'humanus')),  # old
         ('messis', ('herba', 'humanus')),  # as of 4.1.0g
-        ('perfodio', ('humanus', 'saxum')),
+        ('perfodio', ('humanus', 'terra')),
 
         ('fabrico', ('humanus', 'instrumentum')),
-        ('gula', ('fames', 'fames')),
+        ('gula', ('fames', 'vacuous')),
         ('invidia', ('sensus', 'fames')),
         ('machina', ('motus', 'instrumentum')),
-        # ('meto', ('messis', 'humanus')),  # old
         ('meto', ('messis', 'instrumentum')),  # as of 4.1.0g
         ('pannus', ('instrumentum', 'bestia')),
-        ('telum', ('instrumentum', 'perditio')),
+        ('telum', ('instrumentum', 'ignis')),
         ('tutamen', ('instrumentum', 'terra')),
+
+        ('ira', ('telum', 'ignis')),
     ])
 
 
