@@ -19,7 +19,7 @@ def make_aspect_list():
 
     return listify([
         ('aer', ()),
-        ('agua', ()),
+        ('aqua', ()),
         ('ignis', ()),
         ('ordo', ()),
         ('perditio', ()),
@@ -29,19 +29,19 @@ def make_aspect_list():
         ('lux', ('aer', 'ignis')),
         ('motus', ('aer', 'ordo')),
         ('potentia', ('ordo', 'ignis')),
-        ('saxum', ('terra', 'terra')),
+        ('saxum', ('terra', 'terra')),  # TODO changed
         ('vacuos', ('aer', 'perditio')),
-        ('victus', ('agua', 'terra')),
+        ('victus', ('aqua', 'terra')),
 
         ('bestia', ('motus', 'victus')),
         ('fames', ('victus', 'vacuos')),
         ('iter', ('motus', 'terra')),
-        ('limus', ('victus', 'agua')),
+        ('limus', ('victus', 'aqua')),
         ('mortuus', ('victus', 'perditio')),
         ('permutatio', ('perditio', 'ordo')),
         ('praecantatio', ('vacuos', 'potentia')),
-        ('sano', ('victus', 'victus')),
-        ('tempestas', ('aer', 'agua')),
+        ('sano', ('victus', 'victus')),  # TODO changed
+        ('tempestas', ('aer', 'aqua')),
         ('tenebrae', ('vacuos', 'lux')),
         ('vinculum', ('motus', 'perditio')),
         ('vitreus', ('terra', 'ordo')),
@@ -56,7 +56,7 @@ def make_aspect_list():
         ('herba', ('victus', 'terra')),
         ('infernus', ('ignis', 'praecantatio')),
         ('spiritus', ('victus', 'mortuus')),
-        ('venenum', ('agua', 'perditio')),
+        ('venenum', ('aqua', 'perditio')),
         ('vitium', ('praecantatio', 'perditio')),
 
         ('arbor', ('aer', 'herba')),
@@ -93,10 +93,18 @@ def process(source_name, destination_name, depth):
     return graph.all_paths(source_aspect, destination_aspect, depth)
 
 
+def usage():
+    print 'thaumcraft-research first-aspect second-aspect distance'
+
+
 def main():
-    source_name = argv[1]
-    destination_name = argv[2]
-    depth = int(argv[3])
+    try:
+        source_name = argv[1]
+        destination_name = argv[2]
+        depth = int(argv[3])
+    except:
+        return usage()
+
     paths = process(source_name, destination_name, depth)
     for path in paths:
         print ' -> '.join(['{:<12}'.format(source_name)] + ['{:<12}'.format(aspect) for aspect in path])
@@ -104,3 +112,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
